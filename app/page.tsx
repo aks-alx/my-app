@@ -1,103 +1,102 @@
-import Image from "next/image";
+import Header from "@/components/header"
+import CourseSection from "@/components/course-section"
+import Footer from "@/components/footer"
+
+export const metadata = {
+  title: "Evidencias de Cursos - Ingeniería Económica | Alex Javier Betin Uparela",
+  description:
+    "Galería de evidencias de cursos en Ingeniería Económica: Organización financiera, ahorro y presupuesto, y Mercado de valores.",
+}
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const courses = [
+    {
+      id: "organizacion-financiera",
+      title: "Organización financiera, ahorro y presupuesto",
+      description:
+        "Curso especializado en planificación financiera personal, estrategias de ahorro efectivo y elaboración de presupuestos. Se abordaron conceptos fundamentales de finanzas personales, métodos de ahorro y herramientas para la gestión eficiente de recursos económicos.",
+      images: [
+        {
+          src: "/perfil.png",
+          alt: "Inicio de sesión y perfil estudiantil",
+          title: "Perfil estudiantil",
+        },
+        {
+          src: "/modulo1.png",
+          alt: "Inicio del módulo de organización financiera",
+          title: "Modulo ahorro y presupuesto",
+        },
+        {
+          src: "/modulo1-content.png",
+          alt: "¿Qué es una inversión financiera?",
+          title: "Contenido del módulo ",
+        },
+        {
+          src: "/modulo1-preguntas.png",
+          alt: "¿Qué es el ahorro?",
+          title: "Definición de ahorro",
+        },
+        {
+          src: "/final-modulo1.png",
+          alt: "Mensaje de finalización del módulo",
+          title: "Finalización del módulo",
+        },
+        {
+          src: "/modulo1-certificacion.png",
+          alt: "Metas de ahorro y proyecciones a largo plazo",
+          title: "Certificación del curso",
+        },
+      ],
+    },
+    {
+      id: "mercado-valores",
+      title: "Mercado de valores",
+      description:
+        "Curso sobre inversión en mercados de valores, análisis técnico y fundamental, gestión de carteras, y estrategias de inversión. Se cubrieron tópicos como acciones, bonos, derivados y técnicas de evaluación de riesgo en inversiones.",
+      images: [
+        {
+          src: "/captura de pantalla 2025-11-01 134230.png",
+          alt: "Gráficos de análisis técnico del mercado de valores",
+          title: "Análisis Técnico",
+        },
+        {
+          src: "/captura de pantalla 2025-11-01 134230.png",
+          alt: "Ejemplo de cartera diversificada de inversiones",
+          title: "Cartera de Inversiones",
+        },
+        {
+          src: "/captura de pantalla 2025-11-01 134345.png",
+          alt: "Análisis fundamental de empresas para inversión",
+          title: "Análisis Fundamental",
+        },
+        {
+          src: "/captura de pantalla 2025-11-01 134456.png",
+          alt: "Estrategias de gestión de riesgo en inversiones",
+          title: "Gestión de Riesgo",
+        },
+        {
+          src: "/captura de pantalla 2025-11-01 134556.png",
+          alt: "Análisis de bonos y rentabilidad",
+          title: "Análisis de Bonos",
+        },
+        {
+          src: "/captura de pantalla 2025-11-01 134656.png",
+          alt: "Introducción a derivados y opciones financieras",
+          title: "Derivados Financieros",
+        },
+      ],
+    },
+  ]
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  return (
+    <>
+      <Header />
+      <main className="bg-background text-foreground">
+        {courses.map((course) => (
+          <CourseSection key={course.id} course={course} />
+        ))}
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      <Footer />
+    </>
+  )
 }
